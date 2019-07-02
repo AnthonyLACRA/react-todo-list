@@ -46,11 +46,11 @@ class App extends React.Component {
             <Header style={{ textAlign: 'center', color: 'white', fontSize: '35px'}}>- Reactodo -</Header>
             <Content style={{ padding: '50px' }}>
                 <Row style={{ background: '#fff', padding: 24, minHeight: 480 }}>
-                    <Row type="flex" justify="center">
+                    <Row style={{marginBottom: 20}} type="flex" justify="center">
                         <TodoForm onTodoAdd={this.handleAdd}/>
                     </ Row>
                     <div>
-                        <Card title="Qu'est-ce qu'il me reste à faire ?" bordered={false} style={{ width: 600 }}>
+                        <Card title="Qu'est-ce qu'il me reste à faire ?" bordered={true} style={{ width: 600 }}>
                             <ul>
                                 {this.state.todos.map( todo => 
                                     <Todo details={todo} onDelete={this.handleDelete}/>
