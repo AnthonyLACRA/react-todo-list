@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 import { Card } from 'antd';
+import { Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -42,19 +43,24 @@ class App extends React.Component {
     render () {
         return (
         <Layout className="layout">
-            <Header></Header>
+            <Header style={{ textAlign: 'center', color: 'white', fontSize: '35px'}}>- Reactodo -</Header>
             <Content style={{ padding: '50px' }}>
-                <div style={{ background: '#fff', padding: 24, minHeight: 480 }}>
-                    <Card title="Liste" bordered={false} style={{ width: 600 }}>
-                        <ul>
-                            {this.state.todos.map( todo => 
-                                <Todo details={todo} onDelete={this.handleDelete}/>
-                            )}
-                        </ul>
+                <Row style={{ background: '#fff', padding: 24, minHeight: 480 }}>
+                    <Row type="flex" justify="center">
                         <TodoForm onTodoAdd={this.handleAdd}/>
+                    </ Row>
+                    <div>
+                        <Card title="Qu'est-ce qu'il me reste à faire ?" bordered={false} style={{ width: 600 }}>
+                            <ul>
+                                {this.state.todos.map( todo => 
+                                    <Todo details={todo} onDelete={this.handleDelete}/>
+                                )}
+                            </ul>
+                        </Card>
+                    </div>
                     
-                    </Card>
-                </div>
+                </Row>
+               
             </Content>
             <Footer style={{ textAlign: 'center'}}>Anthony lacrabere ©2019</Footer>
         </Layout>

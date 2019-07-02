@@ -6,7 +6,7 @@ import { List, Typography } from 'antd';
 
 const Todo = ({ details, onDelete }) => (
     <List.Item>
-        {details.description}<button onClick={() => onDelete(details.id)}>X</button>
+        {details.description}<button style={{ marginLeft: '25px'}} onClick={() => onDelete(details.id)}>X</button>
     </List.Item>
 );
 
