@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
+import { Card } from 'antd';
+import 'antd/dist/antd.css';
+
+
+
+
 
 class App extends React.Component {
 
@@ -35,16 +41,15 @@ class App extends React.Component {
         const title = 'Liste'
 
         return (
-        <div>
-            <h1>{title}</h1>
+        <Card title="Liste" bordered={false} style={{ width: 600 }}>
             <ul>
                 {this.state.todos.map( todo => 
                     <Todo details={todo} onDelete={this.handleDelete}/>
                 )}
             </ul>
             <TodoForm onTodoAdd={this.handleAdd}/>
-            
-        </div>
+           
+        </Card>
         )
     }
 }

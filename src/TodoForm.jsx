@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { Input } from 'antd';
+import { Button } from 'antd';
+
+const InputGroup = Input.Group
 
 class TodoForm extends Component {
 
@@ -22,14 +26,22 @@ class TodoForm extends Component {
     }
 
     render() {
+
+
         return <form onSubmit={this.handleSubmit}>
-                    <input 
+                    <InputGroup compact block>
+                    <Input 
+                    size="large"
+                    style={{width: 300}}
                     value={this.state.newTodo} 
                     onChange={this.handleChange} 
                     type="text" 
                     placeholder="Ajouter un todo" 
                     />
-                    <button>Confirmer</button>
+                    <Button type="primary" htmlType="submit" size="large">
+                        Primary
+                    </Button>
+                    </InputGroup>
                 </form>
     } 
 
